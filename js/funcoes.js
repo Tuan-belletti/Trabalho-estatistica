@@ -174,8 +174,8 @@ function desenharGrafico(idCanvas, tipo, rotulos, valores, titulo) {
             datasets: [{
                 label: titulo,
                 data: valores,
-                backgroundColor: "#328cc1",
-                borderColor: "#0b3c5d"
+                backgroundColor: "#00693e",
+                borderColor: "#004d2c"
             }]
         }
     });
