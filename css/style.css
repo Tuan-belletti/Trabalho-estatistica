@@ -160,6 +160,7 @@ tr:hover {
 }
 
 canvas {
+    display: none;
     margin-top: 15px;
     max-height: 320px;
 }

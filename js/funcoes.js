@@ -163,7 +163,11 @@ function desenharGrafico(idCanvas, tipo, rotulos, valores, titulo) {
         graficos[idCanvas].destroy();
     }
 
-    graficos[idCanvas] = new Chart(document.getElementById(idCanvas), {
+    // o canvas fica escondido até ter um gráfico
+    let canvas = document.getElementById(idCanvas);
+    canvas.style.display = "block";
+
+    graficos[idCanvas] = new Chart(canvas, {
         type: tipo,
         data: {
             labels: rotulos,
