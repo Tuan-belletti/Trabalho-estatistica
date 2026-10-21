@@ -1,0 +1,186 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #4ca1af;
+    background: linear-gradient(to bottom, #c4e0e5, #4ca1af);
+    background-attachment: fixed;
+    margin: 2%;
+}
+
+h1 {
+    color: #0b3c5d;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    text-align: center;
+    color: #1d2731;
+}
+
+.subtitulo {
+    text-align: center;
+}
+
+.linha {
+    border: 2px solid #0b3c5d;
+    height: 0px;
+}
+
+.menu {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.menu a {
+    display: inline-block;
+    background-color: #0b3c5d;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: #328cc1;
+}
+
+.questao {
+    background-color: white;
+    width: 80%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 15px 25px;
+    border: 2px solid #0b3c5d;
+    border-radius: 8px;
+}
+
+.questao h2 {
+    color: #0b3c5d;
+    border-bottom: 2px solid #c4e0e5;
+    padding-bottom: 5px;
+}
+
+.enunciado {
+    background-color: #eef7f9;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.campos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.campos div {
+    flex: 1;
+    min-width: 160px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.dica {
+    font-size: 12px;
+    color: gray;
+}
+
+button {
+    background: #0b3c5d;
+    background: linear-gradient(to right, #0b3c5d, #328cc1);
+    width: 100%;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: linear-gradient(to right, #328cc1, #0b3c5d);
+}
+
+.resultado {
+    margin-top: 10px;
+}
+
+.resposta {
+    color: #0b3c5d;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+th,
+td {
+    padding: 8px 15px;
+    text-align: center;
+    border: 1px solid #0b3c5d;
+}
+
+th {
+    background-color: #c4e0e5;
+}
+
+tr:hover {
+    background-color: #eef7f9;
+}
+
+.figura {
+    display: block;
+    max-width: 100%;
+    margin: 10px auto;
+}
+
+canvas {
+    margin-top: 15px;
+    max-height: 320px;
+}
+
+footer {
+    text-align: center;
+    margin: 20px;
+}
+
+footer a {
+    color: #0b3c5d;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .questao {
+        width: auto;
+        padding: 10px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}

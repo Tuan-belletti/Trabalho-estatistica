@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho 1 - Probabilidade e Estatística</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Trabalho 1 - Probabilidade e Estatística</h1>
+    <h3>UFFS Erechim - Ciência da Computação (2026/2) - Tuan</h3>
+    <p class="subtitulo">Os campos já vêm com os valores da lista. Troque os valores para resolver qualquer problema parecido.</p>
+
+    <hr class="linha">
+
+    <div class="menu">
+        <a href="#p1">P1</a> <a href="#p2">P2</a> <a href="#p3">P3</a> <a href="#p4">P4</a> <a href="#p5">P5</a>
+        <a href="#p6">P6</a> <a href="#p7">P7</a> <a href="#p8">P8</a> <a href="#p9">P9</a> <a href="#p10">P10</a>
+        <a href="#p11">P11</a> <a href="#p12">P12</a> <a href="#p13">P13</a> <a href="#p14">P14</a> <a href="#p15">P15</a>
+        <a href="#p16">P16</a> <a href="#p17">P17</a> <a href="#p18">P18</a> <a href="#p19">P19</a>
+    </div>
+
+    <hr class="linha">
+
+    <!-- 1. Conjuntos -->
+    <div class="questao" id="p1">
+        <h2>P1 - Operações com conjuntos</h2>
+        <p class="enunciado">Três conjuntos com valores aleatórios (A, B, C). Retornar: A ∪ B, A ∩ B, A ∩ C e Aᶜ.</p>
+        <div class="campos">
+            <div><label>Tamanho do universo (1 até ...)</label><input type="number" id="p1_universo" value="20"></div>
+            <div><label>Elementos de A</label><input type="number" id="p1_a" value="8"></div>
+            <div><label>Elementos de B</label><input type="number" id="p1_b" value="8"></div>
+            <div><label>Elementos de C</label><input type="number" id="p1_c" value="8"></div>
+        </div>
+        <button onclick="questao1()">Sortear conjuntos e calcular</button>
+        <div class="resultado" id="r1"></div>
+    </div>
+
+    <!-- 2. Grupos (baralho) -->
+    <div class="questao" id="p2">
+        <h2>P2 - Elemento que NÃO é de um grupo</h2>
+        <p class="enunciado">Baralho de 52 cartas com 4 naipes: qual a probabilidade de a carta não ser de um naipe escolhido (ex.: ouros)?</p>
+        <div class="campos">
+            <div><label>Tamanho da população</label><input type="number" id="p2_populacao" value="52"></div>
+            <div><label>Quantidade de grupos</label><input type="number" id="p2_grupos" value="4"></div>
+            <div><label>Grupo que NÃO pode sair (nº)</label><input type="number" id="p2_escolhido" value="1">
+                <span class="dica">ex.: 1 = ouros, 2 = espadas...</span></div>
+        </div>
+        <button onclick="questao2()">Calcular</button>
+        <div class="resultado" id="r2"></div>
+    </div>
+
+    <!-- 3. Seleção proporcional -->
+    <div class="questao" id="p3">
+        <h2>P3 - Seleção proporcional ao número de funcionários</h2>
+        <p class="enunciado">Empresas A=20, B=15, C=7, D=5 e E=3 funcionários. a) Probabilidade de cada uma ser selecionada. b) Probabilidade de A não ser selecionada.</p>
+        <div class="campos">
+            <div><label>Nomes das empresas</label><input type="text" id="p3_nomes" value="A; B; C; D; E">
+                <span class="dica">separe por ;</span></div>
+            <div><label>Funcionários de cada uma</label><input type="text" id="p3_funcionarios" value="20; 15; 7; 5; 3">
+                <span class="dica">separe por ;</span></div>
+            <div><label>Empresa do item b</label><input type="text" id="p3_alvo" value="A"></div>
+        </div>
+        <button onclick="questao3()">Calcular</button>
+        <div class="resultado" id="r3"></div>
+        <canvas id="g3"></canvas>
+    </div>
+
+    <!-- 4. Sem reposição -->
+    <div class="questao" id="p4">
+        <h2>P4 - Todos do mesmo grupo (sem reposição)</h2>
+        <p class="enunciado">30 estudantes de Eng. Civil e 10 de outras engenharias. Selecionando n sem reposição, qual a probabilidade de todos serem de Eng. Civil? a) n = 2 b) n = 4</p>
+        <div class="campos">
+            <div><label>Estudantes do grupo (Eng. Civil)</label><input type="number" id="p4_grupo" value="30"></div>
+            <div><label>Estudantes dos outros grupos</label><input type="number" id="p4_outros" value="10"></div>
+            <div><label>Valores de n</label><input type="text" id="p4_n" value="2; 4">
+                <span class="dica">separe por ;</span></div>
+        </div>
+        <button onclick="questao4()">Calcular</button>
+        <div class="resultado" id="r4"></div>
+    </div>
+
+    <!-- 5. Independentes -->
+    <div class="questao" id="p5">
+        <h2>P5 - Problema resolvido por pessoas independentes</h2>
+        <p class="enunciado">Joãozinho resolve com probabilidade 0,5 e Mariazinha com 0,7. Qual a probabilidade de o problema ser resolvido se ambos tentarem independentemente?</p>
+        <div class="campos">
+            <div><label>Nomes das pessoas</label><input type="text" id="p5_nomes" value="Joãozinho; Mariazinha">
+                <span class="dica">separe por ; (pode colocar quantas quiser)</span></div>
+            <div><label>Probabilidade de cada um resolver</label><input type="text" id="p5_probabilidades" value="0,5; 0,7">
+                <span class="dica">separe por ;</span></div>
+        </div>
+        <button onclick="questao5()">Calcular</button>
+        <div class="resultado" id="r5"></div>
+    </div>
+
+    <!-- 6. Frequência relativa -->
+    <div class="questao" id="p6">
+        <h2>P6 - Frequência relativa</h2>
+        <p class="enunciado">504 de 813 lavadoras exigiram reparo na garantia. Qual a probabilidade de uma lavadora não exigir reparo?</p>
+        <div class="campos">
+            <div><label>Total de lavadoras</label><input type="number" id="p6_total" value="813"></div>
+            <div><label>Quantas exigiram reparo</label><input type="number" id="p6_ocorrencias" value="504"></div>
+        </div>
+        <button onclick="questao6()">Calcular</button>
+        <div class="resultado" id="r6"></div>
+    </div>
+
+    <!-- 7. Bayes (rede) -->
+    <div class="questao" id="p7">
+        <h2>P7 - Probabilidade total e Bayes (rede local)</h2>
+        <p class="enunciado">Pedidos: A 10%, B 15%, C 15%, D 40%, E 20%. Pedidos com erro: A 1%, B 2%, C 0,5%, D 2%, E 8%. a) P(erro)? b) P(cliente E | erro)?</p>
+        <div class="campos">
+            <div><label>Clientes</label><input type="text" id="p7_nomes" value="A; B; C; D; E"></div>
+            <div><label>% dos pedidos de cada cliente</label><input type="text" id="p7_pedidos" value="10; 15; 15; 40; 20"></div>
+            <div><label>% de erro de cada cliente</label><input type="text" id="p7_erros" value="1; 2; 0,5; 2; 8"></div>
+            <div><label>Cliente do item b</label><input type="text" id="p7_alvo" value="E"></div>
+        </div>
+        <span class="dica">listas separadas por ;</span>
+        <button onclick="questao7()">Calcular</button>
+        <div class="resultado" id="r7"></div>
+    </div>
+
+    <!-- 8. Bayes (máquinas) -->
+    <div class="questao" id="p8">
+        <h2>P8 - Bayes: de qual máquina veio o parafuso?</h2>
+        <p class="enunciado">Máquinas A, B e C produzem 25%, 35% e 40%. Defeituosos: 5%, 4% e 2%. Um parafuso é defeituoso: qual a probabilidade de ser de A, de B e de C?</p>
+        <div class="campos">
+            <div><label>Máquinas</label><input type="text" id="p8_nomes" value="A; B; C"></div>
+            <div><label>% da produção de cada máquina</label><input type="text" id="p8_producao" value="25; 35; 40"></div>
+            <div><label>% de defeituosos de cada máquina</label><input type="text" id="p8_defeitos" value="5; 4; 2"></div>
+        </div>
+        <span class="dica">listas separadas por ;</span>
+        <button onclick="questao8()">Calcular</button>
+        <div class="resultado" id="r8"></div>
+        <canvas id="g8"></canvas>
+    </div>
+
+    <!-- 9. Série e paralelo -->
+    <div class="questao" id="p9">
+        <h2>P9 - Probabilidade de um sistema funcionar</h2>
+        <p class="enunciado">Escolher uma das duas configurações e a probabilidade de funcionamento de cada um dos 4 componentes.<br>
+            <b>Configuração 1:</b> C1 e C2 em série (cima), C3 e C4 em série (baixo), e os dois ramos em paralelo.<br>
+            <b>Configuração 2:</b> C1 e C3 em paralelo (esquerda), C2 e C4 em paralelo (direita), e os dois blocos em série.</p>
+        <img src="img/p9.png" alt="Configuração 1 (esquerda) e Configuração 2 (direita)" class="figura">
+        <p class="dica">Os valores da 2ª figura (0,01 / 0,02 / 0,03 / 0,04) são probabilidades de falha (o componente funciona com 0,99 / 0,98 / 0,97 / 0,96).
+            Por isso eles já vêm marcados como "Falha". C1 e C2 ficam em cima, C3 e C4 embaixo.</p>
+        <div class="campos">
+            <div><label>Configuração</label>
+                <select id="p9_config">
+                    <option value="1">1 - Série-paralelo</option>
+                    <option value="2">2 - Paralelo-série</option>
+                </select></div>
+            <div><label>Os valores digitados são de</label>
+                <select id="p9_tipo">
+                    <option value="funcionamento">Funcionamento</option>
+                    <option value="falha" selected>Falha</option>
+                </select></div>
+        </div>
+        <br>
+        <div class="campos">
+            <div><label>C1</label><input type="text" id="p9_c1" value="0,01"></div>
+            <div><label>C2</label><input type="text" id="p9_c2" value="0,02"></div>
+            <div><label>C3</label><input type="text" id="p9_c3" value="0,03"></div>
+            <div><label>C4</label><input type="text" id="p9_c4" value="0,04"></div>
+        </div>
+        <button onclick="questao9()">Calcular</button>
+        <div class="resultado" id="r9"></div>
+    </div>
+
+    <!-- 10. Soma de variáveis -->
+    <div class="questao" id="p10">
+        <h2>P10 - Média e desvio-padrão do peso bruto</h2>
+        <p class="enunciado">Peso líquido: média 900 g, desvio 10 g. Embalagem: média 100 g, desvio 4 g (independentes). Média e desvio-padrão do peso bruto?</p>
+        <div class="campos">
+            <div><label>Médias das partes (g)</label><input type="text" id="p10_medias" value="900; 100">
+                <span class="dica">separe por ; (pode ter mais partes)</span></div>
+            <div><label>Desvios-padrão das partes (g)</label><input type="text" id="p10_desvios" value="10; 4">
+                <span class="dica">separe por ;</span></div>
+        </div>
+        <button onclick="questao10()">Calcular</button>
+        <div class="resultado" id="r10"></div>
+    </div>
+
+    <!-- 11. Binomial -->
+    <div class="questao" id="p11">
+        <h2>P11 - Binomial: itens com defeito</h2>
+        <p class="enunciado">5% dos itens têm defeito. Lote com 20 itens: a) algum com defeito; b) exatamente 2; c) mais de 2; d) número esperado de defeituosos e de bons; e) variância.</p>
+        <div class="campos">
+            <div><label>Probabilidade de defeito (p)</label><input type="text" id="p11_p" value="0,05"></div>
+            <div><label>Itens no lote (n)</label><input type="number" id="p11_n" value="20"></div>
+            <div><label>Item b: exatamente</label><input type="number" id="p11_exato" value="2"></div>
+            <div><label>Item c: mais de</label><input type="number" id="p11_maisde" value="2"></div>
+        </div>
+        <button onclick="questao11()">Calcular</button>
+        <div class="resultado" id="r11"></div>
+        <canvas id="g11"></canvas>
+    </div>
+
+    <!-- 12. Hipergeométrica -->
+    <div class="questao" id="p12">
+        <h2>P12 - Hipergeométrica</h2>
+        <p class="enunciado">População com 60 mulheres e 40 homens. Sorteiam-se 2 pessoas. Probabilidade de sair exatamente uma mulher?</p>
+        <div class="campos">
+            <div><label>Mulheres</label><input type="number" id="p12_mulheres" value="60"></div>
+            <div><label>Homens</label><input type="number" id="p12_homens" value="40"></div>
+            <div><label>Pessoas sorteadas (n)</label><input type="number" id="p12_n" value="2"></div>
+            <div><label>Exatamente quantas mulheres (x)</label><input type="number" id="p12_x" value="1"></div>
+        </div>
+        <button onclick="questao12()">Calcular</button>
+        <div class="resultado" id="r12"></div>
+    </div>
+
+    <!-- 13. Poisson -->
+    <div class="questao" id="p13">
+        <h2>P13 - Poisson: mensagens no servidor</h2>
+        <p class="enunciado">Taxa média de 5 chegadas por minuto. a) Probabilidade de 2 chegadas em 1 minuto. b) Probabilidade de 1 chegada em 30 segundos.</p>
+        <div class="campos">
+            <div><label>Taxa média de chegadas</label><input type="text" id="p13_taxa" value="5"></div>
+            <div><label>por</label>
+                <select id="p13_unidade">
+                    <option value="seg">segundo</option>
+                    <option value="min" selected>minuto</option>
+                    <option value="hora">hora</option>
+                </select></div>
+        </div>
+        <p><b>a)</b></p>
+        <div class="campos">
+            <div><label>Quantidade de chegadas</label><input type="number" id="p13_k1" value="2"></div>
+            <div><label>Em quanto tempo</label><input type="text" id="p13_t1" value="1"></div>
+            <div><label>Unidade</label>
+                <select id="p13_u1">
+                    <option value="seg">segundos</option>
+                    <option value="min" selected>minutos</option>
+                    <option value="hora">horas</option>
+                </select></div>
+        </div>
+        <p><b>b)</b></p>
+        <div class="campos">
+            <div><label>Quantidade de chegadas</label><input type="number" id="p13_k2" value="1"></div>
+            <div><label>Em quanto tempo</label><input type="text" id="p13_t2" value="30"></div>
+            <div><label>Unidade</label>
+                <select id="p13_u2">
+                    <option value="seg" selected>segundos</option>
+                    <option value="min">minutos</option>
+                    <option value="hora">horas</option>
+                </select></div>
+        </div>
+        <button onclick="questao13()">Calcular</button>
+        <div class="resultado" id="r13"></div>
+    </div>
+
+    <!-- 14. Binomial x Poisson -->
+    <div class="questao" id="p14">
+        <h2>P14 - Bits com erro (binomial e Poisson)</h2>
+        <p class="enunciado">Probabilidade de um bit com erro = 0,0002. Transmitidos 10.000 bits, qual a probabilidade de mais de 4 bits com erro?</p>
+        <div class="campos">
+            <div><label>Probabilidade de erro (p)</label><input type="text" id="p14_p" value="0,0002"></div>
+            <div><label>Bits transmitidos (n)</label><input type="number" id="p14_n" value="10000"></div>
+            <div><label>Mais de quantos bits</label><input type="number" id="p14_maisde" value="4"></div>
+        </div>
+        <button onclick="questao14()">Calcular</button>
+        <div class="resultado" id="r14"></div>
+    </div>
+
+    <!-- 15. Uniforme -->
+    <div class="questao" id="p15">
+        <h2>P15 - Distribuição uniforme [A, B]</h2>
+        <p class="enunciado">X é uniforme no intervalo [A, B]. Calcular o valor esperado, a variância e P(C &lt; X &lt; D).</p>
+        <div class="campos">
+            <div><label>A</label><input type="text" id="p15_a" value="0"></div>
+            <div><label>B</label><input type="text" id="p15_b" value="10"></div>
+            <div><label>C</label><input type="text" id="p15_c" value="2"></div>
+            <div><label>D</label><input type="text" id="p15_d" value="5"></div>
+        </div>
+        <button onclick="questao15()">Calcular</button>
+        <div class="resultado" id="r15"></div>
+    </div>
+
+    <!-- 16. Exponencial -->
+    <div class="questao" id="p16">
+        <h2>P16 - Exponencial: tempo até a falha</h2>
+        <p class="enunciado">Taxa de falha λ = A falhas/hora. Probabilidade de sobreviver a C horas e a D horas. Teste: A = 0,012, C = 50 e D = 100.</p>
+        <div class="campos">
+            <div><label>A (λ, falhas por hora)</label><input type="text" id="p16_lambda" value="0,012"></div>
+            <div><label>C (horas)</label><input type="text" id="p16_c" value="50"></div>
+            <div><label>D (horas)</label><input type="text" id="p16_d" value="100"></div>
+        </div>
+        <button onclick="questao16()">Calcular</button>
+        <div class="resultado" id="r16"></div>
+        <canvas id="g16"></canvas>
+    </div>
+
+    <!-- 17. Soma de normais -->
+    <div class="questao" id="p17">
+        <h2>P17 - Soma de normais (peso bruto)</h2>
+        <p class="enunciado">Peso líquido X1 (média M1, desvio D1) e embalagem X2 (média M2, desvio D2), normais e independentes. a) P(peso bruto &gt; MS). b) P(I1 &lt; peso bruto &lt; I2).</p>
+        <div class="campos">
+            <div><label>M1 (g)</label><input type="text" id="p17_m1" value="900"></div>
+            <div><label>D1 (g)</label><input type="text" id="p17_d1" value="10"></div>
+            <div><label>M2 (g)</label><input type="text" id="p17_m2" value="100"></div>
+            <div><label>D2 (g)</label><input type="text" id="p17_d2" value="4"></div>
+        </div>
+        <br>
+        <div class="campos">
+            <div><label>MS (g)</label><input type="text" id="p17_ms" value="1020"></div>
+            <div><label>I1 (g)</label><input type="text" id="p17_i1" value="980"></div>
+            <div><label>I2 (g)</label><input type="text" id="p17_i2" value="1020"></div>
+        </div>
+        <button onclick="questao17()">Calcular</button>
+        <div class="resultado" id="r17"></div>
+    </div>
+
+    <!-- 18. Normal padrão -->
+    <div class="questao" id="p18">
+        <h2>P18 - Normal padrão Z</h2>
+        <p class="enunciado">Calcular P(a &lt; Z &lt; b). Testes: a) P(0 &lt; Z &lt; 1,73) b) P(0,81 &lt; Z &lt; +∞) c) P(-1,25 &lt; Z &lt; -0,63)</p>
+        <p class="dica">Para infinito digite inf ou -inf</p>
+        <div class="campos">
+            <div><label>a) de</label><input type="text" id="p18_a1" value="0"></div>
+            <div><label>até</label><input type="text" id="p18_b1" value="1,73"></div>
+        </div>
+        <div class="campos">
+            <div><label>b) de</label><input type="text" id="p18_a2" value="0,81"></div>
+            <div><label>até</label><input type="text" id="p18_b2" value="inf"></div>
+        </div>
+        <div class="campos">
+            <div><label>c) de</label><input type="text" id="p18_a3" value="-1,25"></div>
+            <div><label>até</label><input type="text" id="p18_b3" value="-0,63"></div>
+        </div>
+        <button onclick="questao18()">Calcular</button>
+        <div class="resultado" id="r18"></div>
+    </div>
+
+    <!-- 19. Normal -->
+    <div class="questao" id="p19">
+        <h2>P19 - Normal com média Me e desvio Dp</h2>
+        <p class="enunciado">Me = 48 e Dp = 3. a) entre 42 e 49 cm; b) maior que 52 cm; c) menor que 45 cm.</p>
+        <div class="campos">
+            <div><label>Média (Me)</label><input type="text" id="p19_media" value="48"></div>
+            <div><label>Desvio-padrão (Dp)</label><input type="text" id="p19_desvio" value="3"></div>
+        </div>
+        <br>
+        <div class="campos">
+            <div><label>a) entre</label><input type="text" id="p19_entre1" value="42"></div>
+            <div><label>e</label><input type="text" id="p19_entre2" value="49"></div>
+            <div><label>b) maior que</label><input type="text" id="p19_maior" value="52"></div>
+            <div><label>c) menor que</label><input type="text" id="p19_menor" value="45"></div>
+        </div>
+        <button onclick="questao19()">Calcular</button>
+        <div class="resultado" id="r19"></div>
+        <canvas id="g19"></canvas>
+    </div>
+
+    <footer><a href="#">Voltar ao topo</a></footer>
+
+    <!-- biblioteca para os gráficos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="js/funcoes.js"></script>
+    <script src="js/questoes.js"></script>
+</body>
+
+</html>
